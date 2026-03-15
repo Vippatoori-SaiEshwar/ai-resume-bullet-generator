@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 
-// Fix for node-fetch v3 in CommonJS
+// Fix for node-fetch v3 with CommonJS
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
@@ -10,11 +10,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// API key from environment variable
 const API_KEY = process.env.API_KEY;
 
 app.post("/generate", async (req, res) => {
   try {
+
     const { text } = req.body;
+
+    if (!text) {
+      return res.status(400).json({ error: "No text provided" });
+    }
 
     const prompt = `Convert this into a professional resume bullet:\n${text}`;
 
@@ -40,13 +46,21 @@ app.post("/generate", async (req, res) => {
 
     const data = await response.json();
 
-    const result = data.choices[0].message.content;
+    // Safe response parsing
+    const result =
+      data?.choices?.[0]?.message?.content ||
+      "AI failed to generate response.";
 
     res.json({ bullet: result });
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to generate bullet" });
+
+    console.error("Server error:", error);
+
+    res.status(500).json({
+      error: "Failed to generate bullet"
+    });
+
   }
 });
 
