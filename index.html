@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Bullet Generator</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<h1>AI Resume Bullet Generator</h1>
+<p class="subtitle">Turn your simple project description into a professional resume bullet</p>
+
+<div class="card">
+
+<label>Describe your work or project</label>
+
+<textarea id="inputText" placeholder="Example: Built a weather website using JavaScript API"></textarea>
+
+<button onclick="generateBullet()">Generate Bullet</button>
+
+<div class="result-box">
+
+<h3>Generated Resume Bullet</h3>
+
+<p id="output">
+Your generated resume bullet will appear here.
+</p>
+
+
+<button onclick="copyText()">Copy</button>
+<button onclick="downloadBullet()">Download</button>
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
