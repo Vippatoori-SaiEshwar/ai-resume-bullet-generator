@@ -34,5 +34,39 @@ document.getElementById("output").innerText = "Error generating bullet.";
 
 }
 
+function copyText(){
+
+const text = document.getElementById("output").innerText;
+
+navigator.clipboard.writeText(text)
+.then(() => {
+alert("Copied to clipboard!");
+})
+.catch(err => {
+console.error("Copy failed", err);
+});
+
+}
+
+function downloadBullet(){
+
+const text = document.getElementById("output").innerText;
+
+const blob = new Blob([text], { type: "text/plain" });
+
+const link = document.createElement("a");
+
+link.href = URL.createObjectURL(blob);
+
+link.download = "resume-bullet.txt";
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
+
+}
+
 
 }
