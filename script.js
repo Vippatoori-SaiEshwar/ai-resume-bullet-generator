@@ -34,6 +34,10 @@ document.getElementById("output").innerText = "Error generating bullet.";
 
 }
 
+}
+
+
+// COPY FUNCTION
 function copyText(){
 
 const text = document.getElementById("output").innerText;
@@ -48,6 +52,8 @@ console.error("Copy failed", err);
 
 }
 
+
+// DOWNLOAD FUNCTION
 function downloadBullet(){
 
 const text = document.getElementById("output").innerText;
@@ -65,8 +71,5 @@ document.body.appendChild(link);
 link.click();
 
 document.body.removeChild(link);
-
-}
-
 
 }
