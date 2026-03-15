@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>AI Resume Bullet Generator</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -14,13 +15,18 @@
 <div class="main-container">
 
 <h1>AI Resume Bullet Generator</h1>
-<p class="subtitle">Turn your simple project description into a professional resume bullet</p>
+<p class="subtitle">
+Turn your simple project description into a professional resume bullet
+</p>
 
 <div class="card">
 
-<label>Describe your work or project</label>
+<label for="inputText">Describe your work or project</label>
 
-<textarea id="inputText" placeholder="Example: Built a weather website using JavaScript API"></textarea>
+<textarea
+id="inputText"
+placeholder="Example: Built a weather website using JavaScript API"
+></textarea>
 
 <button onclick="generateBullet()">Generate Bullet</button>
 
@@ -32,9 +38,11 @@
 Your generated resume bullet will appear here.
 </p>
 
-
+<div class="button-group">
 <button onclick="copyText()">Copy</button>
 <button onclick="downloadBullet()">Download</button>
+</div>
+
 </div>
 
 </div>
